@@ -1,90 +1,32 @@
-const Discord = require("discord.js"); // by : zef
-
-const Gamedig = require("gamedig"); // by : zef
-
-
+const Discord = require("discord.js");
+const Gamedig = require("gamedig");
 
 module.exports = {
-
-  name: "status", // by : zef
-
+  name: "status",
   run(client, message, args) {
-
     Gamedig.query({
-
-	type: "mtasa", // by : zef
-
-      host: "156.245.5.39", // عنوان الخادم حطه هنا
-
-      port: "22003", // بورت الخادم حطه هنا
-
+      type: "mtasa",
+      host: "178.32.127.216",
+      port: "22003",
     })
-
       .then((state) => {
-
-        if (state["raw"]["numplayers"] === 0) {
-
-          let embed = new Discord.MessageEmbed()
-
-            .setColor("RED")
-
-            .setTitle(state["name"])
-
-            .addField("Status:", "Online", true)
-
-            .addField(
-
-              "Players:",
-
-              state["raw"]["numplayers"] + "/" + state["maxplayers"],
-
-              true
-
-            )
-
-          message.channel.send({ embed });
-
-        } else {
-
-          let embed = new Discord.MessageEmbed()
-
-            .setColor("RED")
-
-            .setTitle(state["name"])
-
-            .addField("Status", "Online", true)
-
-            .addField(
-
-              "Players",
-
-              state["raw"]["numplayers"] + "/" + state["maxplayers"],
-
-              true
-
-            )
-
-          message.channel.send({ embed });
-
-        }
-
-      })
-
-      .catch((error) => {
-
         let embed = new Discord.MessageEmbed()
-
-          .setColor("RED")
-
-          .setTitle("Iraq Lions - اسود العراق")
-
-          .addField("Status:", "Offline")
-
-		  
+          .setColor("GREEN") // Assuming server is online
+          .setTitle(state["name"])
+          .addField("Status", "Online", true)
+          .addField(
+            "Players",
+            state["raw"]["numplayers"] + "/" + state["maxplayers"],
+            true
+          );
         message.channel.send({ embed });
-
+      })
+      .catch((error) => {
+        let embed = new Discord.MessageEmbed()
+          .setColor("RED") // Server is offline or query failed
+          .setTitle("Iraq Lions")
+          .addField("Status:", "Offline");
+        message.channel.send({ embed });
       });
-
   },
-
 };
