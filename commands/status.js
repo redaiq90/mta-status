@@ -19,6 +19,15 @@ module.exports = {
             state["raw"]["numplayers"] + "/" + state["maxplayers"],
             true
           );
+
+        if (state.players && state.players.length > 0) {
+          // If there are players, list them
+          let playerList = state.players.map((player) => player.name).join(", ");
+          embed.addField("Players Online", playerList);
+        } else {
+          embed.addField("Players Online", "No players online.");
+        }
+
         message.channel.send({ embed });
       })
       .catch((error) => {
