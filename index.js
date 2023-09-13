@@ -43,7 +43,7 @@ const token = process.env.TOKENN;
 client.login(token);
 
 
-const app = express();
+
 const port = process.env.PORT || 8080;
 
 app.get('/', (req, res) => {
