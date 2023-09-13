@@ -32,7 +32,7 @@ client.on("message", (message) => {
   if (!client.commands.has(command)) return; // by : zef
 
   try {
-    client.commands.get(commetand).run(client, message, args); // by : zef
+    client.commands.get(command).run(client, message, args); // by : zef
   } catch (error) {
     console.error(error); // by : zef
     message.reply("حدث خطأ أثناء محاولة تشغيل هذا الأمر!"); // by : zef
