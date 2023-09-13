@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const { token, prefix } = require("./config.json");
+const prefix = "*"
 const client = new Discord.Client();
 const fs = require("fs");
 client.prefix = prefix;
@@ -32,12 +32,12 @@ client.on("message", (message) => {
   if (!client.commands.has(command)) return; // by : zef
 
   try {
-    client.commands.get(command).run(client, message, args); // by : zef
+    client.commands.get(commetand).run(client, message, args); // by : zef
   } catch (error) {
     console.error(error); // by : zef
     message.reply("حدث خطأ أثناء محاولة تشغيل هذا الأمر!"); // by : zef
   }
 });
 
-
+const token = process.env.TOKENN;
 client.login(token);
