@@ -22,7 +22,7 @@ for (const file of commandFiles) {
 
 client.on("ready", () =>{
     console.log(`Logged in as ${client.user.tag}!`); // by : zef
-	client.user.setActivity('Developer : ! Pé , mm0.#0007', { type: 'PLAYING' }) // by : zef
+	client.user.setActivity('Iraq Lions!', { type: 'PLAYING' }) // by : zef
  });
 
 client.on("message", (message) => {
