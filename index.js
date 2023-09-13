@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const prefix = "*"
+const express = require('express');
 const client = new Discord.Client();
 const fs = require("fs");
 client.prefix = prefix;
@@ -41,3 +42,15 @@ client.on("message", (message) => {
 
 const token = process.env.TOKENN;
 client.login(token);
+
+
+const app = express();
+const port = process.env.PORT || 8080;
+
+app.get('/', (req, res) => {
+  res.send('Working bro');
+});
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
