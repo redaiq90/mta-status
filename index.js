@@ -25,7 +25,7 @@ let lastMessageId = null;
 function sendMTAStatus(channel) {
   Gamedig.query({
     type: "mtasa",
-    host: "156.245.5.39",
+    host: "156.245.5.54",
     port: "22003",
   })
     .then((state) => {
