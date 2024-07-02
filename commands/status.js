@@ -6,7 +6,7 @@ module.exports = {
   run(client, message, args) {
     Gamedig.query({
       type: "mtasa",
-      host: "156.245.5.39",
+      host: "3.79.117.121",
       port: "22003",
     })
       .then((state) => {
