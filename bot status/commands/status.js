@@ -6,7 +6,7 @@ module.exports = {
   run(client, message, args) {
     Gamedig.query({
 	type: "mtasa", // by : zef
-      host: "178.32.127.216", // عنوان الخادم حطه هنا
+      host: "3.79.117.121", // عنوان الخادم حطه هنا
       port: "22003", // بورت الخادم حطه هنا
     })
       .then((state) => {
