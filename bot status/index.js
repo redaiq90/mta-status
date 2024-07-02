@@ -1,5 +1,4 @@
 const Discord = require("discord.js");
-const { token, prefix } = require("./config.json");
 const client = new Discord.Client();
 const fs = require("fs");
 client.prefix = prefix;
@@ -12,7 +11,8 @@ const express = require("express");
 const app = express();
 const Gamedig = require("gamedig");
 let playersSize;
-
+const token = process.env.TOKEN;
+const prefix = process.env.PREFIX;
 
 for (const file of commandFiles) { 
   const command = require(`./commands/${file}`); // by : zef
